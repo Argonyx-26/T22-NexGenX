@@ -222,12 +222,12 @@ function App() {
         </div>
 
         {/* Right Column: Threat Map */}
-        <div className="col-span-4 border border-neon-cyan/30 bg-black/60 rounded flex flex-col backdrop-blur-sm overflow-hidden relative">
+        <div className="col-span-4 border border-neon-cyan/30 bg-black/60 rounded flex flex-col backdrop-blur-sm overflow-hidden relative min-h-[400px]">
           <div className="p-3 border-b border-neon-cyan/30 bg-neon-cyan/10 flex items-center gap-2 absolute top-0 left-0 right-0 z-[1000] bg-black/80">
             <MapPin className="text-neon-cyan" size={18} />
             <h2 className="font-bold tracking-wider text-white">GLOBAL THREAT MAP</h2>
           </div>
-          <div className="flex-1 mt-12">
+          <div className="absolute inset-0 top-[48px]">
             <MapContainer 
               center={[20, 0]} 
               zoom={2} 
@@ -235,7 +235,7 @@ function App() {
               zoomControl={false}
             >
               <TileLayer
-                url="https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png"
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               />
               {incidents.map((inc, idx) => (
